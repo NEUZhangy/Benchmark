@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Guide to the OWASP Benchmark v1.2</title>
+    <title>OWASP Benchmark Scorecard for Cross-Site Scripting</title>
 
     <!-- Bootstrap core CSS -->
     <link href="content/css/bootstrap.min.css" rel="stylesheet">
@@ -61,14 +61,13 @@
             <li><a href="Benchmark_v1.2_Scorecard_for_Weak_Random_Number.html">Weak Random Number</a></li>
             <li><a href="Benchmark_v1.2_Scorecard_for_XPath_Injection.html">XPath Injection</a></li>
 
- 	          </ul>
+	          </ul>
 	        </li>
             <li><a href="OWASP_Benchmark_Guide.html">Guide</a></li>
           </ul>
         </div>
       </div>
     </nav>
-
 
     <div class="container">
 
@@ -77,42 +76,31 @@
 <div>empty</div>
 <div>empty</div>
 
-<h2>Introduction</h2>
+<h3>OWASP Benchmark Scorecard for Cross-Site Scripting</h3>
+ 
 <p>The OWASP Benchmark is a test suite designed to evaluate the speed, coverage, and accuracy of automated vulnerability detection tools. Without the ability to measure these tools, 
-it is difficult to understand their strengths and weaknesses, and compare them to each other. The Benchmark contains thousands of test cases that are fully runnable and exploitable.</p>
-
-<p>You can analyze the Benchmark with any type of Application Security Testing (AST) tool, including Static (SAST), Dynamic (DAST) 
-(like OWASP ZAP), and Interactive (IAST) tools. The current version is implemented in Java. Future versions may expand to include other languages.</p>
+it is difficult to understand their strengths and weaknesses, and compare them to each other. The Benchmark contains thousands of test cases that are fully runnable and exploitable. 
+The following is the scorecard showing how well all the tools perform against Cross-Site Scripting (CWE #79) in version 1.2 of the Benchmark. It shows how well each tool finds true positives and 
+avoids false positives for that type of vulnerability in the Benchmark test cases.</p>
 
 <p>For more information, please visit the <a href="https://owasp.org/www-project-benchmark/">OWASP Benchmark Project Site</a>.
 
-<h2>Interpretation Guide</h2>
-<p>Security tools (SAST, DAST, and IAST) are amazing when they find a complex vulnerability in your code. But they can drive everyone crazy with complexity, false alarms, and missed 
-vulnerabilities. Using these tools without understanding their strengths and weaknesses can lead to a dangerous false sense of security.</p>
+<img src='Benchmark_v1.2_Scorecard_for_Cross-Site_Scripting.png' />
 
-<p>We are on a quest to measure just how good these tools are at discovering and properly diagnosing security problems in applications. We rely on the long history of military and 
-medical evaluation of detection technology as a foundation for our research. Therefore, the test suite tests both real and fake vulnerabilities.</p>
+<p/>
+<p/>
 
-<p>There are four possible test outcomes in the Benchmark:</p>
-<ul>
-<li>Tool correctly identifies a real vulnerability (True Positive - TP)</li>
-<li>Tool fails to identify a real vulnerability (False Negative - FN)</li>
-<li>Tool correctly ignores a false alarm (True Negative - TN)</li>
-<li>Tool fails to ignore a false alarm (False Positive - FP)</li>
-</ul>
+<h2>Detailed Results Per Tool for Cross-Site Scripting (CWE #79)</h2>
+<table class="table">
+<tr><th>Tool</th><th>TP</th><th>FN</th><th>TN</th><th>FP</th><th>Total</th><th>TPR</th><th>FPR</th><th>Score</th></tr>
+<tr class="danger"><td>CogniCrypt</td><td>0</td><td>246</td><td>209</td><td>0</td><td>455</td><td>0.00%</td><td>0.00%</td><td>0.00%</td></tr>
+<tr class="danger"><td>CryptoGuard</td><td>0</td><td>246</td><td>209</td><td>0</td><td>455</td><td>0.00%</td><td>0.00%</td><td>0.00%</td></tr>
+</table>
 
-<p>We can learn a lot about a tool from these four metrics. A tool that simply flags every line of code as vulnerable will perfectly identify all vulnerabilities in 
-an application, but will also have 100% false positives. Similarly, a tool that reports nothing will have zero false positives, but will also identify zero real vulnerabilities. 
-Imagine a tool that flips a coin to decide whether to report each vulnerability for every test case. The result would be 50% true positives and 50% false positives. We need a 
-way to distinguish valuable security tools from these trivial ones.</p>
+<p/>
+<p/>
 
-<p>If you imagine the line that connects all these points, from 0,0 to 100,100 establishes a line that roughly translates to "random guessing." The ultimate measure of a 
-security tool is how much better it can do than this line. The diagram below shows how we will evaluate security tools against the Benchmark.</p>
-
-<img src="content/benchmark_guide.png"/>
-
-<h3>Key:</h3>
-
+<h2>Key</h2>
 <table class="table">
 <tr>
 <th>True Positive (TP)</th>
@@ -149,11 +137,12 @@ security tool is how much better it can do than this line. The diagram below sho
 <th>Score = TPR - FPR</th>
 <td>Normalized distance from the random guess line.</td>
 </tr>
+
 </table>
 
-		</div>
-	
-    </div>
+      </div>
+
+    </div><!-- /.container -->
 
 	<!-- Bootstrap core JavaScript
     ================================================== -->

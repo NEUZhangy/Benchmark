@@ -2,4 +2,4 @@
 .java-version
 target/
 testfiles/
-
+.idea/
